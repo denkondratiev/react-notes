@@ -1,10 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
 
-import styles from './Login.module.css';
+import styles from './SignUp.module.css';
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,13 +13,16 @@ const Login = () => {
   const handleLogin = async (email: string, password: string) => {
     const auth = getAuth();
     try {
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
     } catch (error: any) {
       console.error('Error code: ', error.code);
       console.error('Message: ', error.message);
     }
   };
-
   return (
     <div className={styles.container}>
       <div>BILLTECH</div>
@@ -46,4 +49,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

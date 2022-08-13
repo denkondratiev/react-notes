@@ -2,7 +2,7 @@ import React from 'react';
 
 const AuthLayout = React.lazy(() => import('../layouts/AuthLayout/AuthLayout'));
 const Login = React.lazy(() => import('../pages/Login/Login'));
-const Register = React.lazy(() => import('../pages/Register/Register'));
+const SignUp = React.lazy(() => import('../pages/SignUp/SignUp'));
 const NotExistPage = React.lazy(
   () => import('../pages/NotExistPage/NotExistPage')
 );
@@ -17,8 +17,8 @@ const routesAuth = [
         element: <Login />,
       },
       {
-        path: '/register',
-        element: <Register />,
+        path: '/signup',
+        element: <SignUp />,
       },
     ],
   },

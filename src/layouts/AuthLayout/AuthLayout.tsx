@@ -11,7 +11,8 @@ export default function AuthLayout() {
     if (location?.pathname === '/') {
       navigate('/login');
     }
-  }, [location?.pathname]);
+  }, [location?.pathname, navigate]);
+
   return (
     <div className={styles.wrapper}>
       <Outlet />

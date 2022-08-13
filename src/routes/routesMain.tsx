@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MainLayout = React.lazy(() => import('../layouts/MainLayout/MainLayout'));
-const Login = React.lazy(() => import('../pages/Login/Login'));
 const NotExistPage = React.lazy(
   () => import('../pages/NotExistPage/NotExistPage')
 );
