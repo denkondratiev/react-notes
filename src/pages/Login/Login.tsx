@@ -1,7 +1,12 @@
-import './Login.css';
+import styles from './Login.module.css';
 
 const Login = () => {
-  return <h1>Login</h1>;
+  return (
+    <div className={styles.container}>
+      <div>BILLTECH</div>
+      <div>Form login</div>
+    </div>
+  );
 };
 
 export default Login;

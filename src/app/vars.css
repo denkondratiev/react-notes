@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --accent: #dfa549;
+  --white: #ffffff;
+  --grey: #212226;
+  --background-blue: #313866;
+  --background-light: linear-gradient(
+    155.72deg,
+    #504099 17.71%,
+    #4b4af9 119.51%
+  );
+  --background-dark: linear-gradient(180deg, #212226 13.8%, #020202 114.67%);
+}

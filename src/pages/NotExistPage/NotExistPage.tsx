@@ -1,4 +1,4 @@
-import './NotExistPage.css';
+import styles from './NotExistPage.module.css';
 
 const NotExistPage = () => {
   return <h1>NoteExistPage</h1>;

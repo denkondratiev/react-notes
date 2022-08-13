@@ -1,40 +1,29 @@
-import { useEffect } from 'react';
-import {
-  Route,
-  RouteObject,
-  Routes,
-  useNavigate,
-  useRoutes,
-} from 'react-router-dom';
+import React from 'react';
+import { RouteObject, useRoutes } from 'react-router-dom';
+import Loader from '../components/Loader/Loader';
 import Session from '../models/session.model';
 
 import './App.css';
 
-type Props = {
+type AppProps = {
   readonly routesMain: RouteObject[];
   readonly routesAuth: RouteObject[];
 };
 
-function App(props: Props) {
-  const routesMain = useRoutes(props.routesMain);
-  const routesAuth = useRoutes(props.routesAuth);
-
-  const navigate = useNavigate();
+function App({ routesMain, routesAuth }: AppProps) {
+  const mainPages = useRoutes(routesMain);
+  const authPages = useRoutes(routesAuth);
 
   const token = Session.getSessionCookie();
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/login');
-    }
-  }, [token, navigate]);
-
-  return (
-    <Routes>
-      <Route path="/" />
-      <Route path="/login" />
-      <Route path="/register" />
-    </Routes>
+  return token ? (
+    <React.Suspense fallback={<Loader className="loader" />}>
+      {mainPages}
+    </React.Suspense>
+  ) : (
+    <React.Suspense fallback={<Loader className="loader" />}>
+      {authPages}
+    </React.Suspense>
   );
 }
 
