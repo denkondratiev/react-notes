@@ -1,16 +1,21 @@
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+import SignUpForm, {
+  SignUpFormValues,
+} from '../../components/SignUpForm/SignUpForm';
 
 import styles from './SignUp.module.css';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const dispatch = useDispatch();
 
-  const handleLogin = async (email: string, password: string) => {
+  const handleSumbit = async ({
+    fullName,
+    email,
+    password,
+    confirmPassword,
+  }: SignUpFormValues) => {
     const auth = getAuth();
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -27,23 +32,7 @@ const SignUp = () => {
     <div className={styles.container}>
       <div>BILLTECH</div>
       <div>
-        <form>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-          <button type="button" onClick={() => handleLogin(email, password)}>
-            Log in
-          </button>
-        </form>
+        <SignUpForm handleSumbit={handleSumbit} />
       </div>
     </div>
   );

@@ -1,19 +1,24 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { ErrorInfo, useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+import LoginForm, {
+  LoginFormValues,
+} from '../../components/LoginForm/LoginForm';
 
 import styles from './Login.module.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const dispatch = useDispatch();
 
-  const handleLogin = async (email: string, password: string) => {
+  const handleSumbit = async (values: LoginFormValues) => {
     const auth = getAuth();
     try {
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
     } catch (error: any) {
       console.error('Error code: ', error.code);
       console.error('Message: ', error.message);
@@ -24,23 +29,7 @@ const Login = () => {
     <div className={styles.container}>
       <div>BILLTECH</div>
       <div>
-        <form>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-          <button type="button" onClick={() => handleLogin(email, password)}>
-            Log in
-          </button>
-        </form>
+        <LoginForm handleSumbit={handleSumbit} />
       </div>
     </div>
   );
