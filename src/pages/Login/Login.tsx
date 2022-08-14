@@ -2,6 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { setUser } from '../../store/slices/userSlice';
+import log from '../../services/Loger';
 
 import LoginForm, {
   LoginFormValues,
@@ -25,20 +26,18 @@ const Login = () => {
         values.password
       );
       if (user) {
-        CookiesService.setSessionCookie(user.refreshToken);
+        CookiesService.setSessionCookie(user.uid);
         dispatch(
           setUser({
             fullName: user.displayName,
             email: user.email,
-            token: user.refreshToken,
             id: user.uid,
           })
         );
         navigate('/');
       }
     } catch (error: any) {
-      console.error('Error code: ', error.code);
-      console.error('Error message: ', error.message);
+      log.error(error);
     }
   };
 

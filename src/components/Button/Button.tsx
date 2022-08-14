@@ -36,7 +36,7 @@ export default function Button({
       id={id}
       form={form}
       type={type}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       // onClick={onClick}
       className={classNames(styles.button, className)}
     >

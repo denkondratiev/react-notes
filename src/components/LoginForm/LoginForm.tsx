@@ -6,6 +6,7 @@ import InputField from '../InputField/InputField';
 import Button from '../Button/Button';
 import IconLock from '../../icons/IconLock';
 import IconMail from '../../icons/IconMail';
+import log from '../../services/Loger';
 
 import styles from './LoginForm.module.css';
 
@@ -26,7 +27,7 @@ const LoginForm = ({ handleSumbit }: Props) => {
     try {
       await handleSumbit(values);
     } catch (error) {
-      console.error('LoginForm Error: ', error);
+      log.error(error);
     } finally {
       setIsLoading(false);
     }
@@ -57,12 +58,14 @@ const LoginForm = ({ handleSumbit }: Props) => {
             <Form id="signInForm">
               <InputField
                 name="email"
+                type="email"
                 id="login-email"
                 label="Email"
                 icon={<IconMail width="14px" height="14px" />}
               />
               <InputField
                 name="password"
+                type="password"
                 id="login-password"
                 label="Password"
                 icon={<IconLock width="14px" height="14px" />}

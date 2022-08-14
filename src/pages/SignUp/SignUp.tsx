@@ -6,6 +6,7 @@ import {
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { useNavigate } from 'react-router-dom';
 import { setUser } from '../../store/slices/userSlice';
+import log from '../../services/Loger';
 
 import SignUpForm, {
   SignUpFormValues,
@@ -31,20 +32,18 @@ const SignUp = (): JSX.Element => {
       const user = getAuth().currentUser;
       if (user) {
         await updateProfile(user, { displayName: fullName });
-        CookiesService.setSessionCookie(user.refreshToken);
+        CookiesService.setSessionCookie(user.uid);
         dispatch(
           setUser({
             fullName: user.displayName,
             email: user.email,
-            token: user.refreshToken,
             id: user.uid,
           })
         );
         navigate('/');
       }
     } catch (error: any) {
-      console.error('Error code: ', error.code);
-      console.error('Message: ', error.message);
+      log.error(error);
     }
   };
   return (

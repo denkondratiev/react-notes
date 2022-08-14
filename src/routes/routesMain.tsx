@@ -1,6 +1,7 @@
 import React from 'react';
 
 const MainLayout = React.lazy(() => import('../layouts/MainLayout/MainLayout'));
+const Main = React.lazy(() => import('../pages/Main/Main'));
 const NotExistPage = React.lazy(
   () => import('../pages/NotExistPage/NotExistPage')
 );
@@ -12,7 +13,7 @@ const routesMain = [
     children: [
       {
         path: '/',
-        element: <div>Main page</div>,
+        element: <Main />,
       },
     ],
   },

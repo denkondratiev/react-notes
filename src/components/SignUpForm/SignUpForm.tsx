@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import IconUser from '../../icons/IconUser';
 import IconLock from '../../icons/IconLock';
 import IconMail from '../../icons/IconMail';
+import log from '../../services/Loger';
 
 import styles from './SignUpForm.module.css';
 
@@ -28,7 +29,7 @@ const SignUpForm = ({ handleSumbit }: Props) => {
     try {
       await handleSumbit(values);
     } catch (error) {
-      console.error('SignUpForm Error: ', error);
+      log.error(error);
     } finally {
       setIsLoading(false);
     }
@@ -48,13 +49,12 @@ const SignUpForm = ({ handleSumbit }: Props) => {
     if (!values.confirmPassword) {
       errors.confirmPassword = 'Required field';
     }
-
     if (
       values.password &&
       values.confirmPassword &&
       values.password !== values.confirmPassword
     ) {
-      errors.notSame = 'Passwords not the same';
+      errors.confirmPassword = 'Passwords not the same';
     }
     return errors;
   };
@@ -83,18 +83,21 @@ const SignUpForm = ({ handleSumbit }: Props) => {
             />
             <InputField
               name="email"
+              type="email"
               id="signUp-email"
               label="Email"
               icon={<IconMail width="14px" height="14px" />}
             />
             <InputField
               name="password"
+              type="password"
               id="signUp-password"
               label="Password"
               icon={<IconLock width="14px" height="14px" />}
             />
             <InputField
               name="confirmPassword"
+              type="password"
               id="signUp-confirmPassword"
               label="Confirm password"
               icon={<IconLock width="14px" height="14px" />}

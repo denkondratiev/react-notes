@@ -12,7 +12,7 @@ function IconLogo({ className = '', ...props }: Props) {
       className={className}
       {...props}
     >
-      <g clip-path="url(#clip0_11_2150)">
+      <g clipPath="url(#clip0_11_2150)">
         <path
           d="M122.469 96.9487L135.94 65.5384L119.538 49.6203L95.9798 67.0021L122.469 96.9487Z"
           fill="white"
