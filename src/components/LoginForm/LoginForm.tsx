@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Formik, FormikErrors } from 'formik';
 
 import InputField from '../InputField/InputField';
+import Button from '../Button/Button';
+import IconLock from '../../icons/IconLock';
+import IconMail from '../../icons/IconMail';
 
 import styles from './LoginForm.module.css';
 
@@ -40,47 +44,49 @@ const LoginForm = ({ handleSumbit }: Props) => {
   };
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validate={validate}
-      onSubmit={onSubmit}
-      setFieldValue
-      isSubmitting
-    >
-      {(formik) => {
-        const handlerFocusEmail = () => {
-          if (formik.values.email === '') {
-            formik.setFieldValue('email', 'user@mail.com');
-          }
-        };
-
-        return (
-          <Form>
-            <InputField
-              name="email"
-              id="login-email"
-              onFocus={handlerFocusEmail}
-              label="Email*"
-              placeholder="Email"
-            />
-
-            <InputField
-              name="password"
-              id="login-password"
-              label="Password*"
-              placeholder="Password"
-            />
-            <button
-              className={styles.button}
-              disabled={isLoading}
-              type="submit"
-            >
-              {!isLoading ? <span>Sign in</span> : <span>...wait</span>}
-            </button>
-          </Form>
-        );
-      }}
-    </Formik>
+    <div>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validate={validate}
+        onSubmit={onSubmit}
+        setFieldValue
+        isSubmitting
+      >
+        {() => {
+          return (
+            <Form id="signInForm">
+              <InputField
+                name="email"
+                id="login-email"
+                label="Email"
+                icon={<IconMail width="14px" height="14px" />}
+              />
+              <InputField
+                name="password"
+                id="login-password"
+                label="Password"
+                icon={<IconLock width="14px" height="14px" />}
+                className={styles.inputPassword}
+              />
+              <Button
+                type="submit"
+                form="signInForm"
+                isLoading={isLoading}
+                className={styles.loginButton}
+              >
+                Sign in
+              </Button>
+            </Form>
+          );
+        }}
+      </Formik>
+      <div className={styles.divider}></div>
+      <div className={styles.forgotPassword}>
+        <Link to={'/login'} className={styles.forgotPasswordLink}>
+          Forgot your password?
+        </Link>
+      </div>
+    </div>
   );
 };
 

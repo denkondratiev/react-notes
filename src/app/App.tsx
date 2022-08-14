@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
-import Session from '../models/session.model';
+import CookiesService from '../services/CookiesService';
 
 import './App.css';
 
@@ -14,15 +14,11 @@ function App({ routesMain, routesAuth }: AppProps) {
   const mainPages = useRoutes(routesMain);
   const authPages = useRoutes(routesAuth);
 
-  const token = Session.getSessionCookie();
+  const token = CookiesService.getSessionCookie();
 
-  return token ? (
+  return (
     <React.Suspense fallback={<Loader className="loader" />}>
-      {mainPages}
-    </React.Suspense>
-  ) : (
-    <React.Suspense fallback={<Loader className="loader" />}>
-      {authPages}
+      {token ? mainPages : authPages}
     </React.Suspense>
   );
 }

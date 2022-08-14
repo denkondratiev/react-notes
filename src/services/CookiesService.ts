@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-export default class Session {
+export default class CookiesService {
   static getSessionCookie() {
     return Cookies.get('TOKEN') || null;
   }

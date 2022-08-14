@@ -1,28 +1,47 @@
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { useAppDispatch } from '../../hooks/redux-hooks';
+import { useNavigate } from 'react-router-dom';
+import { setUser } from '../../store/slices/userSlice';
 
 import SignUpForm, {
   SignUpFormValues,
 } from '../../components/SignUpForm/SignUpForm';
 
 import styles from './SignUp.module.css';
+import IconLogo from '../../icons/IconLogo';
+import FormWrapper from '../../components/FormWrapper/FormWrapper';
+import CookiesService from '../../services/CookiesService';
 
-const SignUp = () => {
-  const dispatch = useDispatch();
+const SignUp = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSumbit = async ({
     fullName,
     email,
     password,
-    confirmPassword,
-  }: SignUpFormValues) => {
-    const auth = getAuth();
+  }: Pick<SignUpFormValues, 'fullName' | 'email' | 'password'>) => {
     try {
-      const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const auth = getAuth();
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = getAuth().currentUser;
+      if (user) {
+        await updateProfile(user, { displayName: fullName });
+        CookiesService.setSessionCookie(user.refreshToken);
+        dispatch(
+          setUser({
+            fullName: user.displayName,
+            email: user.email,
+            token: user.refreshToken,
+            id: user.uid,
+          })
+        );
+        navigate('/');
+      }
     } catch (error: any) {
       console.error('Error code: ', error.code);
       console.error('Message: ', error.message);
@@ -30,10 +49,10 @@ const SignUp = () => {
   };
   return (
     <div className={styles.container}>
-      <div>BILLTECH</div>
-      <div>
+      <IconLogo width="196px" height="26px" className={styles.iconLogo} />
+      <FormWrapper>
         <SignUpForm handleSumbit={handleSumbit} />
-      </div>
+      </FormWrapper>
     </div>
   );
 };

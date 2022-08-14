@@ -1,5 +1,5 @@
 .wrapper {
-  background: var(--background-light);
+  background: var(--gradient-light);
   height: 100vh;
   display: flex;
 }

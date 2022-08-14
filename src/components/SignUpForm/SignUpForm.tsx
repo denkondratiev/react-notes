@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { Form, Formik, FormikErrors } from 'formik';
 
 import InputField from '../InputField/InputField';
+import Button from '../Button/Button';
+import IconUser from '../../icons/IconUser';
+import IconLock from '../../icons/IconLock';
+import IconMail from '../../icons/IconMail';
 
 import styles from './SignUpForm.module.css';
 
@@ -70,38 +74,35 @@ const SignUpForm = ({ handleSumbit }: Props) => {
     >
       {() => {
         return (
-          <Form>
+          <Form id="signUpForm">
             <InputField
               name="fullName"
               id="signUp-fullName"
-              label="Full name*"
-              placeholder="Full name*"
+              label="Full name"
+              icon={<IconUser width="14px" height="14px" />}
             />
             <InputField
               name="email"
               id="signUp-email"
-              label="Email*"
-              placeholder="Email"
+              label="Email"
+              icon={<IconMail width="14px" height="14px" />}
             />
             <InputField
               name="password"
               id="signUp-password"
-              label="Password*"
-              placeholder="Password"
+              label="Password"
+              icon={<IconLock width="14px" height="14px" />}
             />
             <InputField
               name="confirmPassword"
               id="signUp-confirmPassword"
-              label="Confirm password*"
-              placeholder="Password"
+              label="Confirm password"
+              icon={<IconLock width="14px" height="14px" />}
+              className={styles.confirmPassword}
             />
-            <button
-              className={styles.button}
-              disabled={isLoading}
-              type="submit"
-            >
-              {!isLoading ? <span>Sign up</span> : <span>...wait</span>}
-            </button>
+            <Button type="submit" form="signUpForm" isLoading={isLoading}>
+              Sign up
+            </Button>
           </Form>
         );
       }}
