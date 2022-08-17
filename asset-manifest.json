@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/react-notes/static/css/main.eada27d3.css",
+    "main.js": "/react-notes/static/js/main.4cc20f1b.js",
+    "static/css/731.16880799.chunk.css": "/react-notes/static/css/731.16880799.chunk.css",
+    "static/js/731.cfb298f7.chunk.js": "/react-notes/static/js/731.cfb298f7.chunk.js",
+    "static/css/798.2c85df30.chunk.css": "/react-notes/static/css/798.2c85df30.chunk.css",
+    "static/js/798.0f40614a.chunk.js": "/react-notes/static/js/798.0f40614a.chunk.js",
+    "static/js/314.914612ac.chunk.js": "/react-notes/static/js/314.914612ac.chunk.js",
+    "static/css/233.dfdaa12d.chunk.css": "/react-notes/static/css/233.dfdaa12d.chunk.css",
+    "static/js/233.9b3095ca.chunk.js": "/react-notes/static/js/233.9b3095ca.chunk.js",
+    "static/css/492.ebfc0254.chunk.css": "/react-notes/static/css/492.ebfc0254.chunk.css",
+    "static/js/492.6a26e67a.chunk.js": "/react-notes/static/js/492.6a26e67a.chunk.js",
+    "static/css/68.e48457b2.chunk.css": "/react-notes/static/css/68.e48457b2.chunk.css",
+    "static/js/68.2390ed85.chunk.js": "/react-notes/static/js/68.2390ed85.chunk.js",
+    "static/js/113.b3929a66.chunk.js": "/react-notes/static/js/113.b3929a66.chunk.js",
+    "static/js/705.e697dccc.chunk.js": "/react-notes/static/js/705.e697dccc.chunk.js",
+    "index.html": "/react-notes/index.html",
+    "main.eada27d3.css.map": "/react-notes/static/css/main.eada27d3.css.map",
+    "main.4cc20f1b.js.map": "/react-notes/static/js/main.4cc20f1b.js.map",
+    "731.16880799.chunk.css.map": "/react-notes/static/css/731.16880799.chunk.css.map",
+    "731.cfb298f7.chunk.js.map": "/react-notes/static/js/731.cfb298f7.chunk.js.map",
+    "798.2c85df30.chunk.css.map": "/react-notes/static/css/798.2c85df30.chunk.css.map",
+    "798.0f40614a.chunk.js.map": "/react-notes/static/js/798.0f40614a.chunk.js.map",
+    "314.914612ac.chunk.js.map": "/react-notes/static/js/314.914612ac.chunk.js.map",
+    "233.dfdaa12d.chunk.css.map": "/react-notes/static/css/233.dfdaa12d.chunk.css.map",
+    "233.9b3095ca.chunk.js.map": "/react-notes/static/js/233.9b3095ca.chunk.js.map",
+    "492.ebfc0254.chunk.css.map": "/react-notes/static/css/492.ebfc0254.chunk.css.map",
+    "492.6a26e67a.chunk.js.map": "/react-notes/static/js/492.6a26e67a.chunk.js.map",
+    "68.e48457b2.chunk.css.map": "/react-notes/static/css/68.e48457b2.chunk.css.map",
+    "68.2390ed85.chunk.js.map": "/react-notes/static/js/68.2390ed85.chunk.js.map",
+    "113.b3929a66.chunk.js.map": "/react-notes/static/js/113.b3929a66.chunk.js.map",
+    "705.e697dccc.chunk.js.map": "/react-notes/static/js/705.e697dccc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eada27d3.css",
+    "static/js/main.4cc20f1b.js"
+  ]
+}

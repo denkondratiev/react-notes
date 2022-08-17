@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/314.914612ac.chunk.js","mappings":"mIAMA,UAJqB,WACnB,OAAO,yCACR,C","sources":["pages/NotExistPage/NotExistPage.tsx"],"sourcesContent":["import styles from './NotExistPage.module.css';\n\nconst NotExistPage = () => {\n  return <h1>NoteExistPage</h1>;\n};\n\nexport default NotExistPage;\n"],"names":[],"sourceRoot":""}

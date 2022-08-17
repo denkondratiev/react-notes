@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/731.16880799.chunk.css","mappings":"AAAA,2BAEE,qBAAyB,CADzB,YAEF","sources":["layouts/MainLayout/MainLayout.module.css"],"sourcesContent":[".wrapper {\n  height: 100vh;\n  background-color: #000000;\n}\n"],"names":[],"sourceRoot":""}
