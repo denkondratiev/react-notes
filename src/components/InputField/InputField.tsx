@@ -27,6 +27,7 @@ function InputField({
   className = '',
   onFocus,
   onBlur,
+  ...attrs
 }: InputFieldProps) {
   return (
     <Field name={name}>
@@ -40,6 +41,7 @@ function InputField({
               ) : null}
             </label>
             <input
+              {...attrs}
               {...field}
               {...(placeholder ? { placeholder } : {})}
               id={id}

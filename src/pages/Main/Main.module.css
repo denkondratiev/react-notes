@@ -1,36 +1,28 @@
 .container {
-  display: grid;
-  grid-template-columns: 20% 35% 45%;
-  column-gap: 4px;
+  display: flex;
   height: 100%;
 }
 
-/* aside */
-.asideMenu {
-  background: var(--gradient-light);
-  padding: 16px;
-}
-
-.iconLogo {
-  margin-bottom: 72px;
-}
-
-/* main */
 .main {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  column-gap: 4px;
+}
+
+.notesListPart {
   padding: 16px;
   background: var(--gradient-blue);
 }
 
-/* article */
-.article {
+.notePart {
   background: var(--gradient-dark);
 }
 
-.articleHeader {
+.notePartHeader {
   padding: 16px;
   background: var(--gradient-blue);
 }
 
-.articleBlock {
+.notePartBlock {
   padding: 16px 20px;
 }

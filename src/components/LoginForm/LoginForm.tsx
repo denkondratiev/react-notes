@@ -8,6 +8,8 @@ import IconLock from '../../icons/IconLock';
 import IconMail from '../../icons/IconMail';
 import log from '../../services/Loger';
 
+import { EMAIL_REGEX_PATTERN } from '../../app/app.const';
+
 import styles from './LoginForm.module.css';
 
 export type LoginFormValues = {
@@ -35,6 +37,9 @@ const LoginForm = ({ handleSumbit }: Props) => {
 
   const validate = (values: LoginFormValues) => {
     const errors: FormikErrors<LoginFormValues> = {};
+    if (values.email && !EMAIL_REGEX_PATTERN.test(values.email)) {
+      errors.email = 'Not correct format';
+    }
     if (!values.email) {
       errors.email = 'Required field';
     }

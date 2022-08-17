@@ -8,6 +8,8 @@ import IconLock from '../../icons/IconLock';
 import IconMail from '../../icons/IconMail';
 import log from '../../services/Loger';
 
+import { EMAIL_REGEX_PATTERN } from '../../app/app.const';
+
 import styles from './SignUpForm.module.css';
 
 export type SignUpFormValues = {
@@ -54,7 +56,11 @@ const SignUpForm = ({ handleSumbit }: Props) => {
       values.confirmPassword &&
       values.password !== values.confirmPassword
     ) {
+      errors.password = 'Passwords not the same';
       errors.confirmPassword = 'Passwords not the same';
+    }
+    if (values.email && !EMAIL_REGEX_PATTERN.test(values.email)) {
+      errors.email = 'Not correct format';
     }
     return errors;
   };

@@ -37,7 +37,7 @@ export default function Button({
       form={form}
       type={type}
       disabled={disabled || isLoading}
-      // onClick={onClick}
+      {...(onClick ? { onClick } : {})}
       className={classNames(styles.button, className)}
     >
       {!isLoading ? children : <>...wait</>}

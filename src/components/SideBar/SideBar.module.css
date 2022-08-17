@@ -1,0 +1,15 @@
+.aside {
+  background: var(--gradient-light);
+  padding: 16px;
+  max-width: 243px;
+  margin-right: 4px;
+}
+
+.logo {
+  margin-bottom: 72px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
